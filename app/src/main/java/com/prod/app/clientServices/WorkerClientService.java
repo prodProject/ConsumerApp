@@ -51,8 +51,7 @@ public class WorkerClientService implements IClientServices<Worker.WorkerPb, Wor
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            e.printStackTrace();        }
         return null;
     }
 

@@ -62,7 +62,7 @@ public class OtpVerificationWidget extends LinearLayout implements IView<OtpVeri
                 String code = phoneAuthCredential.getSmsCode();
                 if (code != null) {
                     m_otpcode.setText(code);
-                    getView().verifyVerificationCode(AndroidUtility.getTextFromEditText(m_phoneNumber), code);
+                   getView().verifyVerificationCode(AndroidUtility.getTextFromEditText(m_phoneNumber), code);
                 }
 
             }

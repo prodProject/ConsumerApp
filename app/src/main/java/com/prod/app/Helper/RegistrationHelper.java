@@ -25,7 +25,7 @@ public class RegistrationHelper {
         workerBuilder.getNameBuilder().setLastName(lastName);
         workerBuilder.getContactDetailsBuilder().setEmail(Strings.getEmailIdPbFromStringId(email));
         workerBuilder.getContactDetailsBuilder().getPrimaryMobileBuilder().setCode(Mobile.CountryCodeEnum.ISD_91).setNumber(mobileNumber);
-        workerBuilder.getTypeBuilder().setPersonType(Persontypeenum.PersonTypeEnum.WORKER);
+        workerBuilder.getTypeBuilder().setPersonType(Persontypeenum.PersonTypeEnum.CONSUMER);
         workerBuilder.getDeviceBuilder().setOsType(OSTypeEnum.ANDROID.name()).setModel(DeviceInfo.getDeviceName()).setDeviceName(DeviceInfo.getBrand()).setMacId(DeviceInfo.getMacAddr());
         workerBuilder.getGenderBuilder().setGender(Gender.GenderEnum.FEMALE);
         workerBuilder.getDobBuilder().setDate("21").setMonth("04").setTimezone(Time.TimeZoneEnum.IST).setYear("1997");
@@ -37,7 +37,7 @@ public class RegistrationHelper {
     public Registration.RegistrationRequestPb getRegistrationRequestPb(Registration.RegistrationRequestPb registrationRequestPb) {
         Registration.RegistrationRequestPb.Builder builder = registrationRequestPb.toBuilder();
         Worker.WorkerPb.Builder workerBuilder = builder.getWorkerBuilder();
-        workerBuilder.getTypeBuilder().setPersonType(Persontypeenum.PersonTypeEnum.WORKER);
+        workerBuilder.getTypeBuilder().setPersonType(Persontypeenum.PersonTypeEnum.CONSUMER);
         workerBuilder.getDeviceBuilder().setOsType(OSTypeEnum.ANDROID.name()).setModel(DeviceInfo.getDeviceName()).setDeviceName(DeviceInfo.getBrand()).setMacId(DeviceInfo.getMacAddr());
         return builder.build();
     }

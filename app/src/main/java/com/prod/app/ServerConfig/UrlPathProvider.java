@@ -4,8 +4,9 @@ public class UrlPathProvider {
 
     public enum UrlPathEnum {
         UNKNOWN_URL_PATH,
-        REGISTRATION_WORKER,
+        REGISTRATION_CONSUMER,
         WORKER,
+        CONSUMER,
         LOGIN,
         WORKER_TYPE,
         PUSH_NOTIFICATION,
@@ -16,10 +17,12 @@ public class UrlPathProvider {
 
             case UNKNOWN_URL_PATH:
                 return "";
-            case REGISTRATION_WORKER:
-                return "registrationWorkerMain";
+            case REGISTRATION_CONSUMER:
+                return "registrationConsumerMain";
             case WORKER:
                 return "workerMain";
+            case CONSUMER:
+                return "consumerMain";
             case LOGIN:
                 return "loginMain";
             case WORKER_TYPE:

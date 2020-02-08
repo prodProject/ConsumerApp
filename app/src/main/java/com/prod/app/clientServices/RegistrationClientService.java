@@ -41,7 +41,7 @@ public class RegistrationClientService {
         protected Registration.RegistrationResponsePb doInBackground(Registration.RegistrationRequestPb... registrationRequestPbs) {
             ServerUrlManeger urlManeger = new ServerUrlManeger();
             ProtoSerilizerAndDeserilizer serilizer = new ProtoSerilizerAndDeserilizer();
-            HttpCaller caller = new HttpCaller(RequestMethodEnum.POST, RequestContentTypeEnum.CONTENT_TYPE_JSON, urlManeger.getServerUrl(UrlPathProvider.UrlPathEnum.REGISTRATION_WORKER), serilizer.getJsonObject(registrationRequestPbs[0]));
+            HttpCaller caller = new HttpCaller(RequestMethodEnum.POST, RequestContentTypeEnum.CONTENT_TYPE_JSON, urlManeger.getServerUrl(UrlPathProvider.UrlPathEnum.REGISTRATION_CONSUMER), serilizer.getJsonObject(registrationRequestPbs[0]));
             try {
                 return ProtoJsonUtil.fromJson(caller.execute().toString(), Registration.RegistrationResponsePb.class);
             } catch (IOException e) {

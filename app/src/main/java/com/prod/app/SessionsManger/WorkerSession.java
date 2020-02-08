@@ -13,10 +13,12 @@ public class WorkerSession implements ISession<Worker.WorkerPb> {
     private SessionKeyTypeEnumFormatter m_formatter;
     private WorkerClientService m_workerClientService;
 
+
     public WorkerSession() {
         m_formatter = new SessionKeyTypeEnumFormatter();
         m_workerClientService = new WorkerClientService();
     }
+
 
     @Override
     public Worker.WorkerPb getSession() {

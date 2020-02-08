@@ -3,4 +3,6 @@
     <string name="account_balance">Account Balance</string>
     <string name="balance_currency">$</string>
     <string name="balance_amount">524.99</string>
+    <string name="title_activity_card_widget">CardWidget</string>
+    <string name="title_activity_faltu">faltu</string>
 </resources>

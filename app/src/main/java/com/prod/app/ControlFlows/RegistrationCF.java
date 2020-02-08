@@ -22,10 +22,10 @@ public class RegistrationCF extends AControlFlow<RegistrationCF.State, Void, Voi
     enum State {
         GET_REGISTRATIONPB,
         GET_PUSH_NOTIFICATION_TOKEN,
-        CREATE_REGISTRATION,
+        CREATE_REGISTRATION_CONSUMER,
         SET_LOGIN_TO_LOCAL_DB,
         SET_WORKER_SESSION,
-        DONE,
+        DONE,   // add registration of consumer
     }
 
     public RegistrationCF(Registration.RegistrationRequestPb registrationRequestPb, RegistrationHelper helper, LoginEntityDaoHelper loginEntityDaoHelper, RegistrationClientService registrationService, WorkerSession workerSession) {
@@ -37,7 +37,7 @@ public class RegistrationCF extends AControlFlow<RegistrationCF.State, Void, Voi
         m_registrationRequestPb = registrationRequestPb;
         addStateHandler(State.GET_REGISTRATIONPB, new GetRagistrationPbHandler());
         addStateHandler(State.GET_PUSH_NOTIFICATION_TOKEN, new GetPushNotificationTokenHandler());
-        addStateHandler(State.CREATE_REGISTRATION, new CreateRagistrationHandler());
+        addStateHandler(State.CREATE_REGISTRATION_CONSUMER, new CreateRagistrationHandler());
         addStateHandler(State.SET_LOGIN_TO_LOCAL_DB, new SetLoginToLocalDBHandler());
         addStateHandler(State.SET_WORKER_SESSION, new SetWorkerSessionHandler());
     }
@@ -52,7 +52,7 @@ public class RegistrationCF extends AControlFlow<RegistrationCF.State, Void, Voi
         @Override
         public State handleState() {
             m_registrationRequestPb = m_helper.getRegistrationRequestPb(m_registrationRequestPb);
-            return State.CREATE_REGISTRATION;
+            return State.GET_REGISTRATIONPB;
         }
     }
 
@@ -66,7 +66,7 @@ public class RegistrationCF extends AControlFlow<RegistrationCF.State, Void, Voi
         @Override
         public State handleState() {
             m_registrationRequestPb.toBuilder().setPushNotificationToken("");
-            return State.CREATE_REGISTRATION;
+            return State.CREATE_REGISTRATION_CONSUMER;
         }
     }
 

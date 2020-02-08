@@ -13,7 +13,9 @@ public class SessionKeyTypeEnumFormatter implements IFormatter<String, SessionKe
                 return "worker";
             case UNKNOWN:
                 return "";
-            default:
+            case CONSUMER:
+                return "consumer";
+                default:
                 return "";
         }
     }
